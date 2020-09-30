@@ -1,19 +1,27 @@
 __author__ = "Steve from Ukraine"
 
-# import the math library for rounding down the portions
+# prepare everything for proper work
 import math
 
+storage = open("file.txt", "r+")
+lengthofstorage = len(storage.read())
+storage.seek(0)
+
 # Ask the name of the user and define it as a variable
-print("Hello! How can i call you?\n")
-user_name = input("Your name: ")
+if lengthofstorage > 0:
+    user_name = storage.read()
+    print("Hello again, " + user_name)
+else:
+    print("Hello! How can i call you?\n")
+    user_name = input("Your name: ")
+    storage.write(user_name)
+    # tell the user that he has a nice name
+    print("What a nice name, " + user_name + "!")
 
 # check if its not Vadim
 if user_name.lower() == "vadim":
     while 2 > 1:
         print("Vadim Blyat!")
-
-# tell the user that he has a nice name
-print("What a nice name, " + user_name + "!")
 
 # ask user for how much ingredients he have and store them in a variable
 print("\nSo, how much milk you have? In litres, please! :)")
