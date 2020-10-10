@@ -3,19 +3,18 @@ __author__ = "Steve from Ukraine"
 # prepare everything for proper work
 import math
 
-storage = open("file.txt", "r+")
-lengthofstorage = len(storage.read())
-storage.seek(0)
-
+f = open(".file.txt", "r+")
+lenfile = len(f.read())
+f.seek(0)
 
 # Ask the name of the user and define it as a variable
-if lengthofstorage > 0:
-    user_name = storage.read()
+if lenfile > 0:
+    user_name = f.read()
     print("Hello again, " + user_name)
 else:
     print("Hello! How can i call you?\n")
     user_name = input("Your name: ")
-    storage.write(user_name)
+    f.write(user_name)
     # tell the user that he has a nice name
     print("What a nice name, " + user_name + "!")
 
@@ -37,6 +36,7 @@ minMilk = 0.2
 minEggs = 1
 minFlour = 0.1
 
+
 # this function tells the user (or not) how many ingredients will he need for his portions of blins
 def askforreceipt():
     while 2 > 1:
@@ -44,9 +44,9 @@ def askforreceipt():
         response = input("(y)es or (n)o? ")
         if response.lower() == "y":
             print("\nYou will need:")
-            print(str(int(minEggs*portions)) + " egg(s)")
-            print(str(float(minMilk*portions)) + " liters of milk")
-            print(str(float(minFlour*portions)) + " kilograms of flour")
+            print(str(int(minEggs * portions)) + " egg(s)")
+            print(str(float(minMilk * portions)) + " liters of milk")
+            print(str(float(minFlour * portions)) + " kilograms of flour")
             exit()
             break
         elif response.lower() == "n":
