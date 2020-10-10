@@ -7,6 +7,7 @@ storage = open("file.txt", "r+")
 lengthofstorage = len(storage.read())
 storage.seek(0)
 
+
 # Ask the name of the user and define it as a variable
 if lengthofstorage > 0:
     user_name = storage.read()
@@ -35,7 +36,6 @@ amountOfFlour = input("Amount of flour: ")
 minMilk = 0.2
 minEggs = 1
 minFlour = 0.1
-
 
 # this function tells the user (or not) how many ingredients will he need for his portions of blins
 def askforreceipt():
