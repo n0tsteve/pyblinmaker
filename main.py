@@ -1,11 +1,19 @@
+#!/bin/env python
+
 __author__ = "Steve from Ukraine"
 
 # prepare everything for proper work
 import math
 
-f = open(".file.txt", "r+")
-lenfile = len(f.read())
-f.seek(0)
+try:
+    f = open(".file.txt", "r+")
+except FileNotFoundError:
+    f = open(".file.txt", "w")
+    f.close()
+    f = open("file.txt", "r+")
+finally:
+    lenfile = len(f.read())
+    f.seek(0)
 
 # Ask the name of the user and define it as a variable
 if lenfile > 0:
@@ -68,9 +76,7 @@ def fail(code):
 
 
 # check if user has enough ingredients
-'''
-TODO: make that thing with value error like with the eggs
-'''
+
 try:
     if float(amountOfMilk) >= float(minMilk):
         try:
